@@ -1,4 +1,4 @@
-package fr.diginamic.testjpa;
+package fr.diginamic.tp1;
 
 import static org.junit.Assert.assertTrue;
 

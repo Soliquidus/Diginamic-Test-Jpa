@@ -1,4 +1,4 @@
-package fr.diginamic.testjpa;
+package fr.diginamic.tp1;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +13,7 @@ public class TestJpa {
 
     public static void main( String[] args ) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory( "testjpa" );
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory( "test-jpa" );
         EntityManager em = emf.createEntityManager();
         System.out.println(em);
         em.close();
