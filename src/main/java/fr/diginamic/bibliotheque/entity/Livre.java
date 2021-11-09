@@ -1,15 +1,19 @@
-package fr.diginamic.bibliotheque;
+package fr.diginamic.bibliotheque.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
- * The type Livre.
+ * Classe qui représente l'entité Livre
+ *
+ * @author Tibo Pfeifer
+ * @version 1.0
+ * @date 05/11/2021
  */
-@Table(name = "livre")
+@Table(name = "LIVRE")
 @Entity
 public class Livre {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
 
@@ -19,6 +23,15 @@ public class Livre {
     @Column(name = "AUTEUR", nullable = false, length = 50)
     private String auteur;
 
+    @ManyToMany(mappedBy = "livres")
+    private Set<Emprunt> emprunts;
+
+    /**
+     * Instantiates a new Livre.
+     *
+     * @param titre  the titre
+     * @param auteur the auteur
+     */
     public Livre(String titre, String auteur) {
         this.titre = titre;
         this.auteur = auteur;
@@ -28,6 +41,7 @@ public class Livre {
      * Instantiates a new Livre.
      */
     public Livre() {
+
     }
 
     /**
@@ -82,5 +96,23 @@ public class Livre {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * Gets emprunts.
+     *
+     * @return the emprunts
+     */
+    public Set<Emprunt> getEmprunts() {
+        return emprunts;
+    }
+
+    /**
+     * Sets emprunts.
+     *
+     * @param emprunts the emprunts
+     */
+    public void setEmprunts(Set<Emprunt> emprunts) {
+        this.emprunts = emprunts;
     }
 }
